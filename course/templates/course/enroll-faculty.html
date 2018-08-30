@@ -1,0 +1,15 @@
+{% extends 'course/base.html' %}
+
+{% block body %}
+<h1> <strong><i><font color="green">List of Students </font></i></strong> </h1>
+<ul>
+    Students who have enrolled:
+   {% for st in students %}
+           <li> {{ st }}
+           </li>
+   {% endfor %}
+</ul>
+
+    Students who have not enrolled yet:
+
+{% endblock %}

@@ -1,0 +1,162 @@
+<!--<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" >
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{%block title %} MBM-PROJECTS{% endblock %}</title>
+    {% load staticfiles %}
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Satisfy" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" type="text/css" href="{% static 'project/style.css' %}" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+
+</head>
+<style>
+
+h1, h2 , h3 ,h4 ,h5 {
+    padding-top: 30px;
+    padding-right: 20px;
+    padding-bottom: 10px;
+    padding-left: 10px;
+}
+.btn
+{ color: #fff;
+  background-color: #91afb6;
+  border-color: #91afb6;
+  margin: 20px;
+  padding: 5px 24px;
+  cursor: pointer;
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+}
+.btn:hover {
+    background-color: #41A150;
+    color: white;
+}
+ul {
+    color: #489367;
+    }
+li {
+    border-bottom: 3px lightgrey;
+}
+a {
+
+    padding-left: 10px;
+}
+a:hover {background-color:dark blue;}
+.center {
+    width: 60%;
+    border: 3px solid #737C10;
+    padding-left: 40px;
+}
+table {
+    border-collapse: collapse;
+    width: 80%;
+    margin-top: 10px;
+    margin-bottom: 80px;
+}
+
+th, td {
+    padding: 8px;
+    text-align: left;
+    border-bottom: 1px solid #111;
+
+}
+
+tr:hover {background-color:#f5f5f5;}
+.pro-sidebar {
+    height: 100%;
+    width: 200px;
+    background-color: #CBC6C;
+    position: fixed!important;
+    z-index: 1;
+    overflow: auto;
+}
+.pro-main {
+    transition: margin-left 0s;
+    z-index: 2;
+    overflow: auto;
+    padding-top:95px;
+}
+.pro-light-grey, .pro-hover-light-grey:hover, .pro-light-gray, .pro-hover-light-gray:hover {
+    color: #000!important;
+    background-color: #f1f1f1!important;
+}
+
+.accordion {
+    background-color: #CBC6C;
+    color: #444;
+    cursor: pointer;
+    padding: 18px;
+    width: 100%;
+    border: none;
+    text-align: left;
+    outline: none;
+    font-size: 15px;
+    transition: 0.4s;
+}
+.active, .accordion:hover {
+    background-color: #ccc;
+}
+
+.panel {
+    padding: 0 18px;
+    display: none;
+    background-color: #F1E9E7;
+    overflow: hidden;
+}
+
+
+</style>
+<body style=" background-color:#F6F2F1;">
+            <form action="{% url 'project:project-entry' %}" method="post"  style="position:absolute; top:0; right:280px;padding-top:100px">
+                {% csrf_token %}
+                <button type="submit" class="btn btn-default btn-sm">Make a Project entry here</button>
+            </form>
+            <form action="{% url 'project:ApplyTeam' %}" method="post"  style="position:absolute; top:0; right:530px;padding-top:100px">
+                {% csrf_token %}
+                <button type="submit" class="btn btn-default btn-sm">Create Team</button>
+            </form>
+<div class="pro-sidebar pro-light-grey" style="top:112px;">
+    <h3>Menus</h3>
+        <button class="accordion"><a href="/project/index/">Project Ideas </a><br> </button>
+        <button class="accordion"><a href="/project/myproject/">My Projects </a><br> </button>
+        <button class="accordion">Academic Project</button>
+        <div class="panel">
+            <a href="/project/verify/">Verify Project  </a><br>
+            <a href="/project/academicproject/">Allot Project  </a><br>
+        </div>
+        <button class="accordion"><a href="/project/teams/">My Teams  </a><br></button>
+</div>
+<script>
+    var acc = document.getElementsByClassName("accordion");
+var i;
+
+for (i = 0; i < acc.length; i++) {
+    acc[i].addEventListener("click", function() {
+        this.classList.toggle("active");
+        var panel = this.nextElementSibling;
+        if (panel.style.display === "block") {
+            panel.style.display = "none";
+        } else {
+            panel.style.display = "block";
+        }
+    });
+}
+</script>
+{% block body %}
+{% endblock %}
+</body>
+</html>-->
+<div style="margin-left:350px;">
+            <form action="{% url 'project:project-entry' %}" method="post"  style="position:absolute; top:0; right:280px;padding-top:100px">
+                {% csrf_token %}
+                <button type="submit" class="">Make a Project entry here</button>
+            </form>
+            <form action="{% url 'project:ApplyTeam' %}" method="post"  style="position:absolute; top:0; right:530px;padding-top:100px">
+                {% csrf_token %}
+                <button type="submit" class="">Create Team</button>
+            </form>
+</div>

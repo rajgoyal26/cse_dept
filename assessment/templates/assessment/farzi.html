@@ -1,0 +1,9 @@
+<form action="#" method="Post">
+   {% csrf_token %}
+    {% for i in op %}
+
+    <input type="checkbox" name="ram" value={{i}}> I have a bike<br>
+  {% endfor %}
+    <button type="submit" onclick="return confirm('Are you Sure');" >Submit</button>
+
+</form>

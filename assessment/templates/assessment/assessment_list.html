@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<style>
+table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+td, th {
+    border: 1px solid #000000;
+    text-align: left;
+    padding: 8px;
+}
+
+tr:nth-child(even) {
+    background-color: #dddddd;
+
+tr:nth-child(odd) {
+    background-color: #ff0000;
+}
+
+</style>
+
+
+</head>
+
+<body style="background-color: lightblue ;">
+
+<script language="javascript" type="text/javascript">
+
+var table10_Props = {
+    paging: true,
+    paging_length: 3,
+    col_0: 'select',
+    col_2: 'select',
+    refresh_filters: true
+};
+var tf10 = setFilterGrid("table10", table10_Props);
+
+</script>
+
+
+  <table id="table10">
+  <tr>
+
+    <th>Course</th>
+    <th>Type</th>
+    <th>Year</th>
+    <th>Start_date</th>
+    <th>Duration</th>
+
+  </tr>
+  <tr>
+  {% for user in assessment %}
+
+      <td class="course" data-id="{{user.id}}">{{ user.course }}</td>
+      <td>{{ user.assessment_type }}</td>
+      <td>{{ user.year }}</td>
+      <td>{{ user.start_date}}</td>
+      <td>{{ user.duration }}</td>
+  </tr>
+  {% endfor %}
+  </table>
+</body>

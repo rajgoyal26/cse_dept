@@ -1,0 +1,31 @@
+{% extends 'user/base.html' %}
+{% block title %} Verify {% endblock %}
+{% block body %}
+<div class="pro-main" style="margin-left:350px;margin-top:70px;">
+<h3>Verify Projects</h3>
+{% if team_list %}
+    <table>
+        <tr>
+            <th>TEAM NAME</th>
+            <th>TEAM LEADER</th>
+            <th>PROJECT TITLE</th>
+            <th>PROJECT RESOURCES</th>
+            <th>VERIFY</th>
+            <th>DISAPPROVE</th>
+        </tr>
+        {% for project in team_list %}
+        <tr>
+            <td><a href="{% url 'project:view-team' project.id %}" value="{{project.project_id}}">{{ project.team_name }}</a> </td>
+            <td>{{ project.team_leader }}</td>
+            <td>{{project.title}}</td>
+            <td>{{project.resources}}</td>
+            <td><a href="{% url 'project:proverified' project.id  %}" onclick="return confirm('Are you sure you want to approve this item?');">Verify</a></td>
+            <td><a href="{% url 'project:prodisapproved' project.id  %}" onclick="return confirm('Are you sure you want to disapprove this item?');">Disapprove</a></td>
+        </tr>
+        {% endfor %}
+    </table>
+{% else %}
+<h4>nothing to show</h4>
+</div>
+{% endif %}
+{% endblock %}

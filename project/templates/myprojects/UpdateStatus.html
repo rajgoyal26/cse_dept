@@ -1,0 +1,12 @@
+{% extends 'user/base.html' %}
+{% block body %}
+{% block title %} Update entry {% endblock %}
+<div class="pro-main" style="margin-left:350px;">
+<h2>UPDATE DETAILS</h2>
+<form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <input type= "submit" value="Update" />
+</form>
+</div>
+{% endblock %}

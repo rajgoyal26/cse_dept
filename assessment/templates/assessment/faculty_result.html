@@ -1,0 +1,25 @@
+<form action="{% url 'assessment:question'  assessment.id%}" method="post" style="display: inline;">
+            {% csrf_token %}
+            {% if assessment.assessment_complete == True %}
+            <button type="submit" class="btn btn-default btn-sm" name="add_question" disabled>Add a New Question</button>
+            {% else %}
+            <button type="submit" class="btn btn-default btn-sm" name="add_question" >Add a New Question</button>
+            {% endif %}
+
+
+</form>
+
+<form action="{% url 'assessment:detail' assessment.id %}" method="post" style="display: inline;">
+    {% csrf_token %}
+    <button type="submit" class="btn btn-default btn-sm" name="submit_assessment" >Complete Assessment</button>
+</form>
+
+
+def assessment_detail(request, pk):
+    if 'submit_assessment' in request.POST:
+        assessment_obj = Assessment.objects.get(id=pk)
+        assessment_obj.assessment_complete = True
+        assessment_obj.save()
+    assessment = get_object_or_404(Assessment, pk=pk)
+
+    return render(request, 'assessment/assessment_detail.html', {'assessment': assessment})

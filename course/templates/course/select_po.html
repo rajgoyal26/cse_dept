@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+{% extends 'user/base.html'%}
+{% block title %}  Course Detail {% endblock %}
+
+{% block body %}
+<head>
+{%  load staticfiles %}
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <meta charset="UTF-8">
+  <title>Title</title>
+
+<style>
+body {
+box-sizing:  border-box;
+}
+
+/* Style the header */
+body{
+    font-family: Arial;
+    padding: 0px;
+    background: white;
+}
+.header {
+    background-color:lavender
+    padding: 50px;
+        margin-top:160px;
+        margin-left:10px;
+}
+.header h1{
+    font-size: 110px;
+}
+.leftcolumn{
+    width:   100%;
+    line-height=300%;
+    margin-left:50px;
+    margin-top:0px;
+    padding: 10px;
+    text-align:center
+    font-size:30px
+}
+.leftcolumn a{
+font-size:20px;
+}
+.btn-size{
+  width:   100%;
+    line-height=300%;
+    margin-left:50px;
+    margin-top:0px;
+    padding: 10px;
+    text-align:center
+    font-size:20px
+}
+</style>
+</head>
+
+<h2> Select PO </h2>
+<div class="leftcolumn">
+        <div class="well">
+            <h4>{{ outcome.text }} </h4>
+      <form class="form-horizontal" role="form" id="po_form" action="{% url 'course:po-select' outcome.id %}"
+            method="post" enctype="multipart/form-data">
+          {% csrf_token %}
+          {{ formset.management_form }}
+        <div class="form-group">
+           <div class="col-sm-offset-0 col-sm-12">
+               {% for form in formset %}
+               {{ form.as_table }}
+                  <br>
+               {% endfor %}
+            <button type="submit" class="btn btn-success">Submit</button>
+            </div>
+        </div>
+      </form>
+        </div>
+</div>
+<script type="application/javascript">
+    $(document).ready(function(){
+        $("#po_form select").each(function(){
+            id = $(this).attr("name");
+            val = $(this).val();
+            txt = $(this).children("option:selected").text();
+            if(id.indexOf("outcome")>=0)
+            {
+                //$(this).attr("readonly","readonly");
+                $(this).after("<input type='hidden' name='"+id+"' value='"+val+"'/>");
+                $(this).after("<h5>"+txt+":</h5>");
+                $(this).hide();
+            }
+
+        });
+
+    });
+</script>
+</html>
+{% endblock%}

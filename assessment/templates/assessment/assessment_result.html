@@ -1,0 +1,32 @@
+{% extends "assessment/base.html" %}
+{% block body %}
+<h1>RESULT</h1>
+
+<input type="text" value="Student/Question" disabled/>
+ {% for questions in question %}
+  <input type="number" value="{{ questions.question_order }}" disabled/>
+ {% endfor %}
+  <br>
+  <br>
+
+{% for student in students %}
+    <div class="form-group">
+         <form action="" method="post" enctype="multipart/form-data">
+             <input type="text" value="{{ student.student.name }} " disabled>
+    {% for questions in question %}
+
+        {% csrf_token %}
+            <input type="text" name="obtained_marks" >
+         {% endfor %}
+
+    {% endfor %}
+    <div class="form-group">
+        <div class="col-sm-offset-2 col-sm-10">
+            <button type="submit" class="btn btn-success">Submit</button>
+        </div>
+    </div>
+
+
+    </form>
+</div>
+{% endblock %}

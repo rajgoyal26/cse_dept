@@ -1,0 +1,12 @@
+{% extends 'user/base.html' %}
+{% block title %} Update {% endblock %}
+{% block body %}
+<h2>UPDATE</h2>
+<div class="pro-main" style="margin-left:350px;">
+<form method="get" class="center" action="{% url 'project:myProject' %}">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <input type= "submit" value="Update" />
+</form>
+</div>
+{% endblock %}

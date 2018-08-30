@@ -1,0 +1,13 @@
+{% extends 'user/base.html' %}
+{% block body %}
+<div class="pro-main" style="margin-left:350px;">
+<h3>APPLY HERE NOW</h3>
+
+<form  method="post" class="form">
+    {% csrf_token %}
+    {{ form.as_p }}
+    {% form.team_id = ind %}
+    <input type="submit"  value="Submit" />
+</form>
+</div>
+{% endblock %}

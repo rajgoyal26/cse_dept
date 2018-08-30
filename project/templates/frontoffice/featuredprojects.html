@@ -1,0 +1,28 @@
+{% extends 'user/base.html' %}
+{% block title %} Featured {% endblock %}
+{% block body %}
+<div class="pro-main" style="margin-left:350px;">
+    <h1> Featured Projects</h1>
+{% if obj %}
+    {% for project in obj %}
+        {% if project.report == False %}
+        <ul>
+        <li>
+            <div>
+                <p> Project-Title:<a href="{% url 'project:description' project.id %}">{{ project.title }}</a><br>
+                Added-By:{{ project.added_by }}<br>
+                Date Of Start:{{ project.date_of_start }}<br>
+                Description:{{ project.description }} <br>
+                    Type:{{ project.type }} <br>
+                Funding Agency:{{ project.funding_agency}}</p><br>
+            </div>
+        </li>
+        </ul>
+        {% endif %}
+    {% endfor %}
+
+{% else %}
+    <h1>No project entries found on the database.</h1>
+{% endif %}
+</div>
+{% endblock %}

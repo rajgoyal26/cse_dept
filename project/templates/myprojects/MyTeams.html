@@ -1,0 +1,33 @@
+{% include 'user/base.html' %}
+{% block body %}
+<div class="pro-main" style="margin-left:350px;margin-top:90px;" >
+{% if obj %}
+<table>
+    <tr>
+        <th>
+            TEAM NAME
+        </th>
+        <th>
+            TEAM REQUEST
+        </th>
+        <th>
+            VIEW TEAM
+        </th>
+    </tr>
+    {% for team in obj %}
+    <tr>
+        <td>
+            {{ team.team_name }}
+        </td>
+        <td>
+            <a href="{% url 'project:teamrequest' team.id %}">Requests</a>
+        </td>
+        <td>
+            <a href="{% url 'project:view-team' team.id %}">View Team</a>
+        </td>
+    </tr>
+    {% endfor %}
+</table>
+{% endif %}
+</div>
+{% endblock %}

@@ -1,0 +1,55 @@
+{% extends 'user/base.html' %}
+{% load widget_tweaks %}
+{% block head %}
+<title>Student Profile</title>
+    <style>
+        #id_area_of_interest , #id_carrier_objective{
+              display: block;
+              width: 100%;
+              line-height: 40px;
+              border: none;
+              background: #f9f9ff;
+              padding: 0 20px;
+              height: 100px;
+              resize: none;
+                outline-color: #d0e4d0;
+                outline-style: solid;
+                outline-width: 1px;
+        }
+    </style>
+{% endblock %}
+
+{% block content %}
+    <div class="container col-lg-8 col-md-8" style="margin: 50px 0px">
+        {% if student.submit %}
+            <p>Department: {{ student.department }}</p>
+            <p>Program: {{ student.program }}</p>
+            <p>Semester: {{ student.get_semester_display }}</p>
+            <p>Date of Admission: {{ student.date_of_admission }}</p>
+            <p>Father's Name: {{ student.father_name }}</p>
+            <p>Mother's Name: {{ student.mother_name }}</p>
+
+
+        {% endif %}
+        <form action="" method="post"  enctype="multipart/form-data" >
+            {% csrf_token %}
+             {% for field in form %}
+            {{ field.errors }}
+                 {% if field.name == 'submit' %}
+                 {% else %}
+                     <p>{{ field.label_tag }}
+                     {% render_field field class="single-input" %}</p>
+                 {% endif %}
+            {% endfor %}
+
+            <input type="submit" name="Save" class="btn btn-success" value="Save" >
+            <input type="submit" value="Submit" class="btn btn-success" name="Submit" >
+
+            </div>
+
+        </form>
+
+
+    </div>
+
+{% endblock %}

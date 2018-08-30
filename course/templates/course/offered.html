@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+
+{% extends 'user/base.html'%}
+{% block title %}Offered Course{% endblock %}
+
+{% block body %}
+<html lang="en">
+<head>
+{%  load staticfiles %}
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <meta charset="UTF-8">
+  <title>Title</title>
+
+<style>
+body {
+box-sizing:  border-box;
+}
+
+/* Style the header */
+body{
+    font-family: Arial;
+    padding: 0px;
+    background: white;
+
+
+}
+.header {
+    background-color:lavender
+    padding: 50px;
+        margin-top:160px;
+        margin-left:10px;
+
+
+
+}
+.header h1{
+    font-size: 110px;
+}
+.leftcolumn{
+    width:   100%;
+    line-height=300%;
+    margin-left:50px;
+    margin-top:0px;
+    padding: 10px;
+    text-align:center
+    font-size:30px
+
+}
+.leftcolumn a{
+font-size:20px;
+}
+.btn-size{
+  width:   100%;
+    line-height=300%;
+    margin-left:50px;
+    margin-top:0px;
+    padding: 10px;
+    text-align:center
+    font-size:20px
+
+}
+</style>
+</head>
+<body>
+<h1> <strong><i><font color="orange">Available Courses</font></i></strong> </h1>
+<ul>
+ <div class="leftcolumn">
+     <div class="well">
+         {% for course in av_courses %}
+         <li> {{ course.course }} - {{ course.year }}
+         </li>
+         {% endfor %}
+     </div>
+ </div>
+</ul>
+</body>
+{% endblock %}

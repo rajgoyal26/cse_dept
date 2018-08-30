@@ -1,0 +1,17 @@
+{% extends 'course/base.html' %}
+
+{% block body %}
+
+<h1> <strong><i><font color="green">Courses</font></i></strong> </h1>
+Courses Available: <br> <br>
+
+     <form action="" method="post" enctype="multipart/form-data">
+         {% csrf_token %}
+   {% for course in av_courses %}
+     <input type="radio" name="course" value="{{ course.id }}">{{ course.course }}-{{ course.year }} <br>
+   {% endfor %}
+         <br>
+         <button onclick="return confirm('Are you Sure');" type="submit" class="btn btn-success">Submit</button>
+     </form>
+
+{% endblock %}

@@ -1,0 +1,16 @@
+{% extends 'user/base.html' %}
+
+ {% block head %}
+    <title>Student List</title>
+{% endblock %}
+
+{% block body %}
+
+        <div class="container">
+        {% for student in student_list %}
+         <a href="{% url 'student:profile' student.id %}">{{ student }}</a>
+        {% endfor %}
+        </div>
+
+
+{% endblock %}

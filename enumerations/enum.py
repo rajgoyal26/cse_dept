@@ -3,13 +3,24 @@ from enum import Enum
 
 
 class QuestionType(Enum):
-    T = "Theory"
-    P = "Practical"
+    Remember = "Remember"
+    Understand = "Understand"
+    Apply = "Apply"
+    Analyze = "Analyze"
+    Evaluate = "Evaluate"
+    CD = "Create/Design"
 
 
 class AssessmentType(Enum):
     Int = "Internal"
     M = "Main"
+
+
+class CoPoLink(Enum):
+    N = 'None'
+    H = 'High'
+    S = 'Slight'
+    M = 'Minimum'
 
 
 class FeedbackQuestionType(Enum):
@@ -70,10 +81,10 @@ class Category(Enum):
 
 
 class CourseType(Enum):
-    M_TH  = "Mandatory Theory"
-    M_LAB = "Mandatory Lab"
-    ELEC_TH = "Elective Theory"
-    ELEC_LAB = "Elective lab"
+    MTH  = "Mandatory Theory"
+    MLAB = "Mandatory Lab"
+    ELECTH = "Elective Theory"
+    ELECLAB = "Elective lab"
     VOL = "Voluntary"
 
 
@@ -83,3 +94,9 @@ class FeedbackType(Enum):
     PLACE = 'Placement'
     EVNT = 'Event'
     OT = 'Other'
+
+
+class MessageType(Enum):
+    M = 'Message'
+    N = 'Notice'
+    B = 'Broadcast'

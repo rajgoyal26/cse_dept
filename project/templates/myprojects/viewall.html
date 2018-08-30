@@ -1,0 +1,58 @@
+
+{% extends 'user/base.html' %}
+{% block title %} View Project{% endblock %}
+{% block body %}
+<div class="pro-main" style="margin-left:350px; margin-top: 50px;">
+<h4>** MY PROJECTS-SUPERVISED **</h4>
+    <table>
+    <tr>
+        <th>TITLE</th>
+        <th>DESCRIPTION</th>
+        <th>DATE OF START</th>
+        <th>STATUS</th>
+        <th>UPDATE STATUS</th>
+        <th>TEAM</th>
+        <th>OTHER UPDATES</th>
+    </tr>
+{% if obj %}
+{% for project in obj %}
+    <tr>
+    <td>{{ project.title }}</td>
+    <td>{{ project.description }}</td>
+    <td>{{ project.date_of_start }}</td>
+    <td>{{ project.status }}</td>
+
+    <td><a href="{% url 'project:update-status' project.id %}">Update Status</a></td>
+    <td><a href="{% url 'project:view-team' project.id %}" >View Team </a></td>
+    <td><a href="{% url 'project:project-update' project.id %}">Other Updates </a></td>
+    </tr>
+{% endfor %}
+{% else %}
+    <h5> NO PROJECTS TO SHOW.</h5>
+{% endif %}
+
+
+</table>
+    <h4>** MY PROJECTS-MEMBER **</h4>
+    <table>
+    <tr>
+        <th>TITLE</th>
+        <th>DESCRIPTION</th>
+        <th>DATE OF START</th>
+        <th>STATUS</th>
+    </tr>
+{% if obj2 %}
+{% for project in obj2 %}
+    <tr>
+        <td>{{ project.title }}</td>
+        <td>{{ project.description }}</td>
+        <td>{{ project.date_of_start }}</td>
+        <td>{{ project.status }}</td>
+    </tr>
+{% endfor %}
+{% else %}
+    <h5> NO PROJECTS TO SHOW.</h5>
+{% endif %}
+</table>
+</div>
+{% endblock %}
